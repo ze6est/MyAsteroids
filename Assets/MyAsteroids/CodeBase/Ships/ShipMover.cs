@@ -1,6 +1,7 @@
 using MyAsteroids.CodeBase.Data;
 using MyAsteroids.CodeBase.Inputs;
 using UnityEngine;
+using Zenject;
 
 namespace MyAsteroids.CodeBase.Ships
 {
@@ -16,13 +17,13 @@ namespace MyAsteroids.CodeBase.Ships
 
         private float _moveInput;
         
+        [Inject]
         public void Construct(ShipData shipData, ShipInputs shipInputs)
         {
             _acceleration = shipData.Acceleration;
             _deceleration = shipData.Deceleration;
             _maxSpeed = shipData.MaxSpeed;
-            _shipInputs = shipInputs;
-            
+           
             _shipInputs.Moved += OnMoved;
         }
         

@@ -1,6 +1,7 @@
 using MyAsteroids.CodeBase.Data;
 using MyAsteroids.CodeBase.Inputs;
 using UnityEngine;
+using Zenject;
 
 namespace MyAsteroids.CodeBase.Ships
 {
@@ -17,6 +18,7 @@ namespace MyAsteroids.CodeBase.Ships
 
         private Vector2 _lookTo;
 
+        [Inject]
         public void Construct(ShipData shipData, ShipInputs shipInputs)
         {
             _speed = shipData.RotateSpeed;

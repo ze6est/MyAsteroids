@@ -7,11 +7,11 @@ namespace MyAsteroids.CodeBase.Data
     public class ShipData
     {
         [Header("Ship Mover")] 
-        public float Acceleration = 0.5f;
+        public float Acceleration = 200f;
         public float Deceleration = 0.5f;
         public float MaxSpeed = 4f;
 
         [Header("ShipRotator")] 
-        public float RotateSpeed = 2f;
+        public float RotateSpeed = 1.5f;
     }
 }
