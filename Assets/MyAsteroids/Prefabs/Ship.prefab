@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3897693824755238490}
   - component: {fileID: 5878522235087489689}
   - component: {fileID: -5332891010994777208}
-  - component: {fileID: 1429491940108252003}
-  - component: {fileID: -337408412796944183}
+  - component: {fileID: 2758836473858441879}
+  - component: {fileID: 2386646263187670431}
+  - component: {fileID: 2334918961694216687}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -34,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 3039690668260207450}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5878522235087489689
 Rigidbody2D:
@@ -75,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5991d4ee93224e3587d4f85b752d6bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1429491940108252003
+--- !u!114 &2758836473858441879
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e83c5174d9be14ca6467cf84d34a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-337408412796944183
+--- !u!114 &2386646263187670431
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,6 +100,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68454d230eb8be247b99c7e3cbc15e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &2334918961694216687
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2630867494501905622}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.1}
+  serializedVersion: 2
+  m_Radius: 0.55
 --- !u!1001 &2157475868356248156
 PrefabInstance:
   m_ObjectHideFlags: 0

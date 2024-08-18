@@ -1,3 +1,4 @@
+using System;
 using MyAsteroids.CodeBase.Data;
 using MyAsteroids.CodeBase.Inputs;
 using UnityEngine;
@@ -24,18 +25,19 @@ namespace MyAsteroids.CodeBase.Ships
             _deceleration = shipData.Deceleration;
             _maxSpeed = shipData.MaxSpeed;
            
-            _shipInputs.Moved += OnMoved;
+            _shipInputs = shipInputs;
         }
         
-        private void Awake()
-        {
+        private void Awake() => 
             _rigidbody = GetComponent<Rigidbody2D>();
-        }
+
+        private void OnEnable() => 
+            _shipInputs.Moved += OnMoved;
 
         private void Update() => 
             Move();
 
-        private void OnDestroy() => 
+        private void OnDisable() => 
             _shipInputs.Moved -= OnMoved;
 
         private void OnMoved(float speed) => 

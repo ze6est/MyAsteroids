@@ -42,11 +42,8 @@ namespace MyAsteroids.CodeBase.Inputs
             _input.ShipInput.Disable();
         }
         
-        private void OnMoved(InputAction.CallbackContext context)
-        {
-            Debug.Log("Moved");
+        private void OnMoved(InputAction.CallbackContext context) => 
             Moved?.Invoke(context.ReadValue<float>());
-        }
 
         private void OnLookTo(InputAction.CallbackContext context) => 
             Rotated?.Invoke(context.ReadValue<Vector2>());

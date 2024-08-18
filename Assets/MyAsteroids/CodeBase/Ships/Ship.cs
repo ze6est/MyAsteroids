@@ -9,19 +9,13 @@ namespace MyAsteroids.CodeBase.Ships
         private ShipInputs _shipInputs;
         
         [Inject]
-        public void Construct(ShipInputs shipInputs)
-        {
+        public void Construct(ShipInputs shipInputs) => 
             _shipInputs = shipInputs;
-        }
 
-        private void OnEnable()
-        {
+        private void OnEnable() => 
             _shipInputs.Enable();
-        }
 
-        private void OnDisable()
-        {
+        private void OnDisable() => 
             _shipInputs.Disable();
-        }
     }
 }

@@ -204,7 +204,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -352,7 +352,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1410783036}
   - component: {fileID: 1410783035}
-  - component: {fileID: 1410783034}
+  - component: {fileID: 1410783037}
+  - component: {fileID: 1410783038}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -360,24 +361,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1410783034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1410783033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c373d2f1feba1c741a7bfd66aef40dc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ship: {fileID: -5332891010994777208, guid: 3ccc12d9173505c498053fd0da3dd52d, type: 3}
-  _shipData:
-    Acceleration: 0.5
-    Deceleration: 0.5
-    MaxSpeed: 4
-    RotateSpeed: 2
 --- !u!114 &1410783035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,7 +375,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
-  - {fileID: 1410783034}
+  - {fileID: 1410783037}
+  - {fileID: 1410783038}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -425,6 +409,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1410783037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410783033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2054631ed63e62a4aa43c75373802671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shipPrefab: {fileID: -5332891010994777208, guid: 3ccc12d9173505c498053fd0da3dd52d, type: 3}
+  _shipData:
+    Acceleration: 200
+    Deceleration: 0.5
+    MaxSpeed: 4
+    RotateSpeed: 1.5
+--- !u!114 &1410783038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410783033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ddc15254649d7141865d48b999a7ced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1841011614
 GameObject:
   m_ObjectHideFlags: 0

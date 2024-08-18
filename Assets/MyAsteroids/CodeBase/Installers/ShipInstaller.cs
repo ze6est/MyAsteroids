@@ -7,18 +7,21 @@ using Zenject;
 
 namespace MyAsteroids.CodeBase.Installers
 {
-    public class GameInstaller : MonoInstaller
+    public class ShipInstaller : MonoInstaller
     {
-        [SerializeField] private Ship _ship;
+        [SerializeField] private Ship _shipPrefab;
         [SerializeField] private ShipData _shipData;
-        
-        private ShipInputs _shipInputs;
 
         public override void InstallBindings()
         {
             Container.Bind<ShipInputs>().AsSingle();
-            Container.Bind<Ship>().FromFactory<ShipFactory>().AsSingle().WithArguments(_ship);
             Container.BindInstance(_shipData);
+
+            Container.Bind<ShipFactory>().AsSingle().WithArguments(_shipPrefab);
+            
+            Container.Bind<Ship>().AsSingle();
+            Container.Bind<ShipMover>().AsSingle();
+            Container.Bind<ShipRotator>().AsSingle();
         }
     }
 }

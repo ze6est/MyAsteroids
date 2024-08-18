@@ -23,8 +23,6 @@ namespace MyAsteroids.CodeBase.Ships
         {
             _speed = shipData.RotateSpeed;
             _shipInputs = shipInputs;
-
-            _shipInputs.Rotated += OnRotated;
         }
         
         private void Awake()
@@ -33,10 +31,13 @@ namespace MyAsteroids.CodeBase.Ships
             _camera = Camera.main;
         }
 
+        private void OnEnable() => 
+            _shipInputs.Rotated += OnRotated;
+
         private void Update() => 
             Rotate();
 
-        private void OnDestroy() => 
+        private void OnDisable() => 
             _shipInputs.Rotated -= OnRotated;
 
         private void OnRotated(Vector2 lookTo) => 
