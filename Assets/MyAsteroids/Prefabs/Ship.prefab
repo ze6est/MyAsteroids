@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5332891010994777208}
   - component: {fileID: 2758836473858441879}
   - component: {fileID: 2386646263187670431}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,6 +143,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3897693824755238490}
     m_Modifications:
+    - target: {fileID: 37825018538693067, guid: d68b2c483e9abb243ab524aee3241379, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553603583063252593, guid: d68b2c483e9abb243ab524aee3241379, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4026150248603855110, guid: d68b2c483e9abb243ab524aee3241379, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -187,9 +195,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4309400753102151217, guid: d68b2c483e9abb243ab524aee3241379, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4588510528402139529, guid: d68b2c483e9abb243ab524aee3241379, type: 3}
       propertyPath: m_Name
       value: ShipModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4588510528402139529, guid: d68b2c483e9abb243ab524aee3241379, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

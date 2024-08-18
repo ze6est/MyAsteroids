@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1468404613237358344}
   - component: {fileID: 2967498750092100388}
   - component: {fileID: 2567434123843218777}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 4451894422810273556}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1468404613237358344
 Rigidbody2D:
@@ -120,6 +120,10 @@ PrefabInstance:
     - target: {fileID: 3649547703365008555, guid: 28072068354f6974d854042946dcb7f5, type: 3}
       propertyPath: m_Name
       value: BulletModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649547703365008555, guid: 28072068354f6974d854042946dcb7f5, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4642441569958404268, guid: 28072068354f6974d854042946dcb7f5, type: 3}
       propertyPath: m_RootOrder
