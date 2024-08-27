@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3789993016506604254}
-  m_Layer: 0
+  - component: {fileID: 7140776102299658515}
+  m_Layer: 7
   m_Name: BulletGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,6 +32,19 @@ Transform:
   m_Father: {fileID: 4026150248603855110}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7140776102299658515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37825018538693067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cca2e431f82bde4ab33a8e5e97880fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 2567434123843218777, guid: b7fa04ae40e5dd444aded361021ec7aa, type: 3}
 --- !u!1 &1553603583063252593
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,7 +54,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6447176499954102158}
-  m_Layer: 0
+  - component: {fileID: 1896209828108342665}
+  m_Layer: 7
   m_Name: BulletGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,6 +77,19 @@ Transform:
   m_Father: {fileID: 4026150248603855110}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1896209828108342665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553603583063252593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cca2e431f82bde4ab33a8e5e97880fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 2567434123843218777, guid: b7fa04ae40e5dd444aded361021ec7aa, type: 3}
 --- !u!1 &4309400753102151217
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,7 +99,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 17957278748397848}
-  m_Layer: 0
+  - component: {fileID: 228369801439948995}
+  m_Layer: 7
   m_Name: LaserGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,6 +122,18 @@ Transform:
   m_Father: {fileID: 4026150248603855110}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &228369801439948995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4309400753102151217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9138a0b679b833b42a4a0a16be2a1bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4588510528402139529
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +144,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4026150248603855110}
   - component: {fileID: 7341156438141094890}
-  m_Layer: 0
+  - component: {fileID: 7236078743802198676}
+  m_Layer: 7
   m_Name: ShipModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,3 +222,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7236078743802198676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588510528402139529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386eae301f304ace8b535db7d49d18f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletsGun:
+  - {fileID: 7140776102299658515}
+  - {fileID: 1896209828108342665}
+  _laserGun: {fileID: 228369801439948995}

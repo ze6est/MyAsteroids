@@ -1,4 +1,3 @@
-using System;
 using MyAsteroids.CodeBase.Data;
 using MyAsteroids.CodeBase.Inputs;
 using UnityEngine;
@@ -12,43 +11,43 @@ namespace MyAsteroids.CodeBase.Ships
         private float _acceleration;
         private float _deceleration;
         private float _maxSpeed;
-        
+
         private Rigidbody2D _rigidbody;
         private ShipInputs _shipInputs;
 
         private float _moveInput;
-        
+
         [Inject]
         public void Construct(ShipData shipData, ShipInputs shipInputs)
         {
             _acceleration = shipData.Acceleration;
             _deceleration = shipData.Deceleration;
             _maxSpeed = shipData.MaxSpeed;
-           
+
             _shipInputs = shipInputs;
         }
-        
-        private void Awake() => 
+
+        private void Awake() =>
             _rigidbody = GetComponent<Rigidbody2D>();
 
-        private void OnEnable() => 
+        private void OnEnable() =>
             _shipInputs.Moved += OnMoved;
 
-        private void Update() => 
+        private void Update() =>
             Move();
 
-        private void OnDisable() => 
+        private void OnDisable() =>
             _shipInputs.Moved -= OnMoved;
 
-        private void OnMoved(float speed) => 
+        private void OnMoved(float speed) =>
             _moveInput = speed;
 
         private void Move()
         {
             _rigidbody.AddRelativeForce(_moveInput * _acceleration * Time.deltaTime * Vector2.up, ForceMode2D.Force);
-            
+
             _rigidbody.velocity = Vector2.ClampMagnitude(_rigidbody.velocity, _maxSpeed);
-            
+
             if (_moveInput <= 0)
             {
                 float velocityX = Mathf.Lerp(_rigidbody.velocity.x, 0, _deceleration * Time.deltaTime);

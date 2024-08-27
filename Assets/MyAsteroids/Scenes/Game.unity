@@ -352,8 +352,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1410783036}
   - component: {fileID: 1410783035}
-  - component: {fileID: 1410783037}
   - component: {fileID: 1410783038}
+  - component: {fileID: 1410783037}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -427,6 +427,14 @@ MonoBehaviour:
     Deceleration: 0.5
     MaxSpeed: 4
     RotateSpeed: 1.5
+  _bulletPoolData:
+    Capacity: 20
+    IsAutoExpand: 0
+  _ammunitionsData:
+    BulletStartSpeed: 10
+    BulletMaxSpeed: 15
+    LaserStartSpeed: 5
+    LaserMaxSpeed: 10
 --- !u!114 &1410783038
 MonoBehaviour:
   m_ObjectHideFlags: 0
