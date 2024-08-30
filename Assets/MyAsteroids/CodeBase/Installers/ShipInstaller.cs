@@ -17,12 +17,14 @@ namespace MyAsteroids.CodeBase.Installers
         [SerializeField] private ShipData _shipData;
         
         [SerializeField] private BulletPoolData _bulletPoolData;
+        [SerializeField] private LaserPoolData _laserPoolData;
         [SerializeField] private AmmunitionsData _ammunitionsData;
 
         public override void InstallBindings()
         {
             Container.BindInstance(_shipData);
             Container.BindInstance(_bulletPoolData);
+            Container.BindInstance(_laserPoolData);
             Container.BindInstance(_ammunitionsData);
             
             Container.Bind<ShipInputs>().AsSingle();
@@ -34,6 +36,7 @@ namespace MyAsteroids.CodeBase.Installers
             Container.Bind<ShipShooter>().AsSingle();
 
             Container.Bind<BulletGun>().AsSingle();
+            Container.Bind<LaserGun>().AsSingle();
         }
     }
 }

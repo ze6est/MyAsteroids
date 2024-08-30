@@ -22,16 +22,25 @@ namespace MyAsteroids.CodeBase.Ships
             _shipInputs = shipInputs;
         }
 
-        private void OnEnable() => 
+        private void OnEnable()
+        {
             _shipInputs.BulletShooted += OnBulletShooted;
+            _shipInputs.LaserShooted += OnLaserShooted;
+        }
 
-        private void OnDisable() => 
+        private void OnDisable()
+        {
             _shipInputs.BulletShooted -= OnBulletShooted;
+            _shipInputs.LaserShooted -= OnLaserShooted;
+        }
 
         public void OnBulletShooted()
         {
             foreach (BulletGun bulletGun in _bulletsGun)
                 bulletGun.Shoot();
         }
+        
+        public void OnLaserShooted() => 
+            _laserGun.Shoot();
     }
 }

@@ -4,7 +4,7 @@ using MyAsteroids.CodeBase.Spawners;
 using UnityEngine;
 using Zenject;
 
-namespace MyAsteroids.CodeBase.Factories
+namespace MyAsteroids.CodeBase.Factories.Ammunitions.Bullets
 {
     public class BulletSpawnerFactory
     {

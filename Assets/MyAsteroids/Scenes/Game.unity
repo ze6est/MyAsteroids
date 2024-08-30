@@ -431,10 +431,10 @@ MonoBehaviour:
     Capacity: 20
     IsAutoExpand: 0
   _ammunitionsData:
-    BulletStartSpeed: 10
-    BulletMaxSpeed: 15
-    LaserStartSpeed: 5
-    LaserMaxSpeed: 10
+    BulletStartSpeed: 1
+    BulletMaxSpeed: 10
+    LaserStartSpeed: 3
+    LaserMaxSpeed: 7
 --- !u!114 &1410783038
 MonoBehaviour:
   m_ObjectHideFlags: 0

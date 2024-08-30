@@ -1,19 +1,18 @@
-using MyAsteroids.CodeBase.Ammunitions;
 using MyAsteroids.CodeBase.Data;
 using MyAsteroids.CodeBase.Pool;
 using UnityEngine;
 using Zenject;
 
-namespace MyAsteroids.CodeBase.Factories
+namespace MyAsteroids.CodeBase.Factories.Ammunitions.Bullets
 {
     public class BulletPoolFactory
     {
-        private Bullet _prefab;
+        private CodeBase.Ammunitions.Bullet _prefab;
         private Transform _container;
         private BulletPoolData _bulletPoolData;
         private IInstantiator _instantiator;
 
-        public BulletPoolFactory(Bullet prefab, Transform container, BulletPoolData bulletPoolData, IInstantiator instantiator)
+        public BulletPoolFactory(CodeBase.Ammunitions.Bullet prefab, Transform container, BulletPoolData bulletPoolData, IInstantiator instantiator)
         {
             _prefab = prefab;
             _container = container;
