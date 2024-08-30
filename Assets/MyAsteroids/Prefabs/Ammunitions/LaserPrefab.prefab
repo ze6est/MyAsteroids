@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 4243753489653499758}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5113332619526753729
 Rigidbody2D:
@@ -94,8 +94,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.75}
-  m_Size: {x: 0.25, y: 1.57}
+  m_Offset: {x: 0, y: -0.55}
+  m_Size: {x: 0.15, y: 1.17}
   m_Direction: 0
 --- !u!114 &7277624001685738712
 MonoBehaviour:

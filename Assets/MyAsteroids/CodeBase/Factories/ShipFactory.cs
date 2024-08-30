@@ -6,7 +6,7 @@ namespace MyAsteroids.CodeBase.Factories
     public class ShipFactory
     {
         private readonly IInstantiator _instantiator;
-        private Ship _shipPrefab;
+        private readonly Ship _shipPrefab;
         
         public ShipFactory(IInstantiator instantiator, Ship shipPrefab)
         {

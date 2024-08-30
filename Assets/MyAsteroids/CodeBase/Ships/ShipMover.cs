@@ -16,6 +16,8 @@ namespace MyAsteroids.CodeBase.Ships
         private ShipInputs _shipInputs;
 
         private float _moveInput;
+        
+        public float Velocity { get; private set; }
 
         [Inject]
         public void Construct(ShipData shipData, ShipInputs shipInputs)
@@ -55,6 +57,8 @@ namespace MyAsteroids.CodeBase.Ships
 
                 _rigidbody.velocity = new Vector2(velocityX, velocityY);
             }
+            
+            Velocity = transform.InverseTransformDirection(_rigidbody.velocity).y;
         }
     }
 }
