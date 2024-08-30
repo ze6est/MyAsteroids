@@ -16,7 +16,8 @@ namespace MyAsteroids.CodeBase.Ammunitions
         
         protected void OnTriggerEnter2D(Collider2D other)
         {
-            Destroyed?.Invoke(this);
+            if(other.TryGetComponent(out Destroyer _))
+                Destroyed?.Invoke(this);
         }
     }
 }

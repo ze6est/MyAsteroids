@@ -52,7 +52,7 @@ namespace MyAsteroids.CodeBase.Gun
                 LaserChargesChanged?.Invoke(_currentLaserCharges);
             }
             
-            if (_currentLaserCharges <= 0)
+            if (_currentLaserCharges <= 0 && _isRecharged)
             {
                 StartCoroutine(Recharge());
                 _isRecharged = false;
@@ -75,7 +75,6 @@ namespace MyAsteroids.CodeBase.Gun
             _isRecharged = true;
             
             LaserChargesChanged?.Invoke(_currentLaserCharges);
-            LaserFailureTimeChanged?.Invoke(_currentLaserFailureTime);
         }
     }
 }
