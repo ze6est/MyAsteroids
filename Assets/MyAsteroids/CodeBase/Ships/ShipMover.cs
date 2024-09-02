@@ -6,7 +6,7 @@ using Zenject;
 namespace MyAsteroids.CodeBase.Ships
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class ShipMover : MonoBehaviour
+    public class ShipMover : MonoBehaviour, IRestarter
     {
         private float _acceleration;
         private float _deceleration;
@@ -40,6 +40,13 @@ namespace MyAsteroids.CodeBase.Ships
 
         private void OnDisable() =>
             _shipInputs.Moved -= OnMoved;
+        
+        public void Restart()
+        {
+            transform.position = Vector3.zero;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            _rigidbody.velocity = Vector2.zero;
+        }
 
         private void OnMoved(float speed) =>
             _moveInput = speed;

@@ -16,7 +16,7 @@ namespace MyAsteroids.CodeBase.Installers
             
             Container.Bind<EntryPoint>().AsSingle().NonLazy();
             Container.Bind<Restarter>().AsSingle();
-            Container.Bind<ScoreCounter>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<ScoreCounter>().AsSingle().NonLazy();
         }
     }
 }

@@ -6,9 +6,10 @@ using Zenject;
 namespace MyAsteroids.CodeBase.Ships
 {
     [RequireComponent(typeof(ShipMover))]
-    public class Ship : MonoBehaviour
+    public class Ship : MonoBehaviour, IRestarter
     {
         [SerializeField] private ShipMover _shipMover;
+        [SerializeField] private ShipShooter _shipShooter;
         [SerializeField] private ShipTriggerObserver _shipTriggerObserver;
         [SerializeField] private LaserGun _laserGun;
         
@@ -30,5 +31,11 @@ namespace MyAsteroids.CodeBase.Ships
 
         private void OnDisable() => 
             _shipInputs.Disable();
+        
+        public void Restart()
+        {
+            _shipMover.Restart();
+            _shipShooter.Restart();
+        }
     }
 }

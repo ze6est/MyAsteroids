@@ -6,7 +6,7 @@ using Zenject;
 
 namespace MyAsteroids.CodeBase.Ships
 {
-    public class ShipShooter : MonoBehaviour
+    public class ShipShooter : MonoBehaviour, IRestarter
     {
         [SerializeField] private ShipModel _model;
         
@@ -42,5 +42,15 @@ namespace MyAsteroids.CodeBase.Ships
         
         public void OnLaserShooted() => 
             _laserGun.Shoot();
+
+        public void Restart()
+        {
+            foreach (BulletGun bulletGun in _bulletsGun)
+            {
+                bulletGun.Restart();
+            }
+            
+            _laserGun.Restart();
+        }
     }
 }

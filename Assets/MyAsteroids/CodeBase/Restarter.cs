@@ -10,6 +10,7 @@ namespace MyAsteroids.CodeBase
     public class Restarter : IDisposable
     {
         private DiContainer _container;
+        private Ship _ship;
         private ShipTriggerObserver _shipTriggerObserver;
         private RestartWindow _restartWindow;
 
@@ -23,9 +24,10 @@ namespace MyAsteroids.CodeBase
             _restartWindow.Hide();
         }
 
-        public void SetShipTriggerObserver(ShipTriggerObserver shipTriggerObserver)
+        public void SetShip(Ship ship)
         {
-            _shipTriggerObserver = shipTriggerObserver;
+            _ship = ship;
+            _shipTriggerObserver = ship.ShipTriggerObserver;
             _shipTriggerObserver.Died += OnDied;
         }
         
@@ -49,6 +51,8 @@ namespace MyAsteroids.CodeBase
 
             foreach (IRestarter restarter in _restarters)
                 restarter.Restart();
+            
+            _ship.Restart();
         }
     }
 }

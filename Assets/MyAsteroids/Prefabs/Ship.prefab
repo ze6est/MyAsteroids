@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shipMover: {fileID: 2758836473858441879}
+  _shipShooter: {fileID: 5173047614852587745}
   _shipTriggerObserver: {fileID: 8421224013190897125}
   _laserGun: {fileID: 2223566282527814303}
 --- !u!114 &2758836473858441879

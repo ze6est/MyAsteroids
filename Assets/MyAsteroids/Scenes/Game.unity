@@ -1602,7 +1602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnerData:
-    SpawnRadius: 10
+    SpawnRadius: 9
     SpawnTime: 3
     CountAsteroidsSmall: 3
   _asteroidPrefab: {fileID: 8606458771472759921, guid: 226ef5802f6a74f459c2beb57689d72a, type: 3}
@@ -1615,7 +1615,7 @@ MonoBehaviour:
   _asteroidSmallData:
     Speed: 0.7
   _ufoData:
-    Speed: 1.5
+    Speed: 1.8
   _asteroidPoolData:
     Capacity: 10
     IsAutoExpand: 1

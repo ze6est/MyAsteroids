@@ -6,7 +6,7 @@ using Zenject;
 
 namespace MyAsteroids.CodeBase.Gun
 {
-    public class BulletGun : MonoBehaviour
+    public class BulletGun : MonoBehaviour, IRestarter
     {
         [SerializeField] private Bullet _prefab;
         
@@ -22,5 +22,10 @@ namespace MyAsteroids.CodeBase.Gun
         
         public void Shoot() => 
             _bulletSpawner.Spawn(_transform.position, _transform.rotation);
+
+        public void Restart()
+        {
+            _bulletSpawner.Restart();
+        }
     }
 }

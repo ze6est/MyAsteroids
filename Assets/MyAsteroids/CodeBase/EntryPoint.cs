@@ -18,7 +18,7 @@ namespace MyAsteroids.CodeBase
             Ship ship = _shipFactory.CreateShip();
             
             _shipHUD.Construct(ship);
-            restarter.SetShipTriggerObserver(ship.ShipTriggerObserver);
+            restarter.SetShip(ship);
             
             enemiesSpawner.Start(ship);
         }

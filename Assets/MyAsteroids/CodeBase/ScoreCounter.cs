@@ -3,7 +3,7 @@ using MyAsteroids.CodeBase.Spawners;
 
 namespace MyAsteroids.CodeBase
 {
-    public class ScoreCounter : IDisposable
+    public class ScoreCounter : IDisposable, IRestarter
     {
         private int _score;
         
@@ -19,15 +19,20 @@ namespace MyAsteroids.CodeBase
 
             _enemiesSpawner.EnemieDestroyed += OnEnemieDestroyed;
         }
+        
+        public void Dispose()
+        {
+            _enemiesSpawner.EnemieDestroyed -= OnEnemieDestroyed;
+        }
+        
+        public void Restart()
+        {
+            _score = 0;
+        }
 
         private void OnEnemieDestroyed()
         {
             _score++;
-        }
-
-        public void Dispose()
-        {
-            _enemiesSpawner.EnemieDestroyed -= OnEnemieDestroyed;
         }
     }
 }

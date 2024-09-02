@@ -8,7 +8,7 @@ using Zenject;
 
 namespace MyAsteroids.CodeBase.Gun
 {
-    public class LaserGun : MonoBehaviour
+    public class LaserGun : MonoBehaviour, IRestarter
     {
         [SerializeField] private Laser _prefab;
         [SerializeField] private int _maxLaserCharges = 10;
@@ -20,6 +20,8 @@ namespace MyAsteroids.CodeBase.Gun
         private Transform _transform;
         
         private LaserSpawner _laserSpawner;
+
+        private Coroutine _rechargeJob;
         
         public event UnityAction<int> LaserChargesChanged;
         public event UnityAction<float> LaserFailureTimeChanged;
@@ -52,9 +54,24 @@ namespace MyAsteroids.CodeBase.Gun
             
             if (_currentLaserCharges <= 0 && _isRecharged)
             {
-                StartCoroutine(Recharge());
+                _rechargeJob = StartCoroutine(Recharge());
                 _isRecharged = false;
             }
+        }
+        
+        public void Restart()
+        {
+            _laserSpawner.Restart();
+            
+            if(_rechargeJob != null)
+                StopCoroutine(_rechargeJob);
+            
+            _currentLaserCharges = _maxLaserCharges;
+            _currentLaserFailureTime = 0;
+            _isRecharged = true;
+            
+            LaserChargesChanged?.Invoke(_currentLaserCharges);
+            LaserFailureTimeChanged?.Invoke(_currentLaserFailureTime);
         }
         
         private IEnumerator Recharge()
