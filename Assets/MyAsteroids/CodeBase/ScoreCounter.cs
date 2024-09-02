@@ -6,7 +6,11 @@ namespace MyAsteroids.CodeBase
     public class ScoreCounter : IDisposable
     {
         private int _score;
+        
         private EnemiesSpawner _enemiesSpawner;
+
+        public string Score => 
+            _score.ToString();
 
         public ScoreCounter(EnemiesSpawner enemiesSpawner)
         {

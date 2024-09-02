@@ -9,12 +9,17 @@ namespace MyAsteroids.CodeBase.Ships
     public class Ship : MonoBehaviour
     {
         [SerializeField] private ShipMover _shipMover;
+        [SerializeField] private ShipTriggerObserver _shipTriggerObserver;
         [SerializeField] private LaserGun _laserGun;
         
         private ShipInputs _shipInputs;
 
-        public ShipMover ShipMover => _shipMover;
-        public LaserGun LaserGun => _laserGun;
+        public ShipMover ShipMover => 
+            _shipMover;
+        public ShipTriggerObserver ShipTriggerObserver => 
+            _shipTriggerObserver;
+        public LaserGun LaserGun => 
+            _laserGun;
         
         [Inject]
         public void Construct(ShipInputs shipInputs) => 

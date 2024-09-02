@@ -10,7 +10,7 @@ namespace MyAsteroids.CodeBase
         private ShipFactory _shipFactory;
         private ShipHUD _shipHUD;
         
-        public EntryPoint(ShipFactory shipFactory, ShipHUD shipHUD, EnemiesSpawner enemiesSpawner)
+        public EntryPoint(ShipFactory shipFactory, ShipHUD shipHUD, EnemiesSpawner enemiesSpawner, Restarter restarter)
         {
             _shipFactory = shipFactory;
             _shipHUD = shipHUD;
@@ -18,6 +18,7 @@ namespace MyAsteroids.CodeBase
             Ship ship = _shipFactory.CreateShip();
             
             _shipHUD.Construct(ship);
+            restarter.SetShipTriggerObserver(ship.ShipTriggerObserver);
             
             enemiesSpawner.Start(ship);
         }

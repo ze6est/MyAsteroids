@@ -46,7 +46,7 @@ namespace MyAsteroids.CodeBase.Installers
             Container.BindInstance(_ufoPoolData);
             Container.Bind<UfoPool>().AsSingle().WithArguments(_ufoPrefab, _enemiesContainer);
             
-            Container.Bind<EnemiesSpawner>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<EnemiesSpawner>().AsSingle().NonLazy();
         }
     }
 }

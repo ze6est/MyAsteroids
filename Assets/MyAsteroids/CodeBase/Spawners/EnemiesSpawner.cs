@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using MyAsteroids.CodeBase.Data.Enemies;
 using MyAsteroids.CodeBase.Enemies;
@@ -8,11 +9,15 @@ using UnityEngine.Events;
 
 namespace MyAsteroids.CodeBase.Spawners
 {
-    public class EnemiesSpawner
+    public class EnemiesSpawner : IRestarter
     {
         private AsteroidPool _asteroidPool;
         private UfoPool _ufoPool;
         private AsteroidSmallPool _asteroidSmallPool;
+
+        private List<Asteroid> _activeAsteroids;
+        private List<AsteroidSmall> _activeAsteroidsSmall;
+        private List<Ufo> _activeUfos;
 
         private EnemiesSpawnerData _enemiesSpawnerData;
         private Ship _target;
@@ -26,12 +31,41 @@ namespace MyAsteroids.CodeBase.Spawners
             _asteroidPool = asteroidPool;
             _ufoPool = ufoPool;
             _asteroidSmallPool = asteroidSmallPool;
+
+            _activeAsteroids = new();
+            _activeAsteroidsSmall = new ();
+            _activeUfos = new();
         }
 
         public void Start(Ship ship)
         {
             _target = ship;
             SpawnEnemies().Forget();
+        }
+        
+        public void Restart()
+        {
+            foreach (Asteroid asteroid in _activeAsteroids)
+            {
+                asteroid.Destroyed -= OnEnemieDestroyed;
+                _asteroidPool.Release(asteroid);
+            }
+            
+            foreach (AsteroidSmall asteroidSmall in _activeAsteroidsSmall)
+            {
+                asteroidSmall.Destroyed -= OnEnemieDestroyed;
+                _asteroidSmallPool.Release(asteroidSmall);
+            }
+            
+            foreach (Ufo ufo in _activeUfos)
+            {
+                ufo.Destroyed -= OnEnemieDestroyed;
+                _ufoPool.Release(ufo);
+            }
+            
+            _activeAsteroids.Clear();
+            _activeAsteroidsSmall.Clear();
+            _activeUfos.Clear();
         }
 
         private async UniTaskVoid SpawnEnemies()
@@ -46,6 +80,7 @@ namespace MyAsteroids.CodeBase.Spawners
                 if (random > 50)
                 {
                     Asteroid asteroid = _asteroidPool.GetFreeObject();
+                    _activeAsteroids.Add(asteroid);
                     asteroid.transform.position = position;
                     asteroid.CalculateDirectionNormalized();
                     asteroid.StartMove();
@@ -54,6 +89,7 @@ namespace MyAsteroids.CodeBase.Spawners
                 else
                 {
                     Ufo ufo = _ufoPool.GetFreeObject();
+                    _activeUfos.Add(ufo);
                     ufo.transform.position = position;
                     ufo.Init(_target.transform);
                     ufo.StartMove();
@@ -87,24 +123,28 @@ namespace MyAsteroids.CodeBase.Spawners
             for (int i = 0; i < _enemiesSpawnerData.CountAsteroidsSmall; i++)
             {
                 AsteroidSmall asteroidSmall = _asteroidSmallPool.GetFreeObject();
+                _activeAsteroidsSmall.Add(asteroidSmall);
                 asteroidSmall.transform.position = position;
                 asteroidSmall.CalculateDirectionNormalized();
                 asteroidSmall.StartMove();
                 asteroidSmall.Destroyed += OnEnemieDestroyed;
             }
-            
+
+            _activeAsteroids.Remove(asteroid);
             asteroid.Destroyed -= OnEnemieDestroyed;
             _asteroidPool.Release(asteroid);
         }
 
         private void CrashUfo(Ufo ufo)
         {
+            _activeUfos.Remove(ufo);
             ufo.Destroyed -= OnEnemieDestroyed;
             _ufoPool.Release(ufo);
         }
 
         private void CrachAsteroidSmall(AsteroidSmall asteroidSmall)
         {
+            _activeAsteroidsSmall.Remove(asteroidSmall);
             asteroidSmall.Destroyed -= OnEnemieDestroyed;
             _asteroidSmallPool.Release(asteroidSmall);
         }

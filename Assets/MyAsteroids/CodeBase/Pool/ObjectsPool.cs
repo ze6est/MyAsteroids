@@ -47,6 +47,14 @@ namespace MyAsteroids.CodeBase.Pool
             CountActiveObjects--;
         }
 
+        public void ReleaseAll()
+        {
+            foreach (T obj in _pool)
+                obj.gameObject.SetActive(false);
+
+            CountActiveObjects = 0;
+        }
+
         private void CreatePool(int capacity)
         {
             _pool = new List<T>();
