@@ -1117,12 +1117,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnerData:
-    SpawnRadius: 5
+    SpawnRadius: 10
     SpawnTime: 3
     CountAsteroidsSmall: 3
   _asteroidPrefab: {fileID: 8606458771472759921, guid: 226ef5802f6a74f459c2beb57689d72a, type: 3}
   _asteroidSmallPrefab: {fileID: 3788906095241665430, guid: 2806327801e96834f81df8e3e3ed0260, type: 3}
   _ufoPrefab: {fileID: 3712556818441684640, guid: 8a9668a2323249046a02a2e561ced77e, type: 3}
+  _asteroidData:
+    Speed: 0.5
+    MaxMovePositionX: 2
+    MaxMovePositionY: 1
+  _asteroidSmallData:
+    Speed: 0.5
+  _ufoData:
+    Speed: 0.5
   _asteroidPoolData:
     Capacity: 10
     IsAutoExpand: 1

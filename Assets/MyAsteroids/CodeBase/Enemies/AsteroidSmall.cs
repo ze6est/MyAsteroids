@@ -1,3 +1,4 @@
+using System.Collections;
 using MyAsteroids.CodeBase.Data.Enemies;
 using UnityEngine;
 using UnityEngine.Events;
@@ -16,23 +17,26 @@ namespace MyAsteroids.CodeBase.Enemies
         {
             Speed = data.Speed;
         }
-        
-        private void Update() => 
-            Move();
 
         public void CalculateDirectionNormalized()
         {
             _randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
         }
 
-        protected override void Move()
+        protected override IEnumerator Move()
         {
-            Rigidbody.AddForce(Speed * Time.deltaTime * _randomDirection);
-            Rigidbody.velocity = Vector2.ClampMagnitude(Rigidbody.velocity, Speed);
+            while (true)
+            {
+                Rigidbody.AddForce(Speed * Time.deltaTime * _randomDirection);
+                Rigidbody.velocity = Vector2.ClampMagnitude(Rigidbody.velocity, Speed);
+
+                yield return null;
+            }
         }
 
         protected override void OnTriggerEnter2D(Collider2D other)
         {
+            base.OnTriggerEnter2D(other);
             Destroyed?.Invoke(this, transform.position);
         }
     }

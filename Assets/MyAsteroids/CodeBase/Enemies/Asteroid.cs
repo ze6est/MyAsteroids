@@ -1,3 +1,4 @@
+using System.Collections;
 using MyAsteroids.CodeBase.Data.Enemies;
 using UnityEngine;
 using UnityEngine.Events;
@@ -21,9 +22,6 @@ namespace MyAsteroids.CodeBase.Enemies
             _maxMovePositionX = data.MaxMovePositionX;
             _maxMovePositionY = data.MaxMovePositionY;
         }
-        
-        private void Update() => 
-            Move();
 
         public void CalculateDirectionNormalized()
         {
@@ -33,14 +31,20 @@ namespace MyAsteroids.CodeBase.Enemies
             _direction = (new Vector3(positionX, positionY, 0) - transform.position).normalized;
         }
 
-        protected override void Move()
+        protected override IEnumerator Move()
         {
-            Rigidbody.AddForce(Speed * Time.deltaTime * _direction);
-            Rigidbody.velocity = Vector2.ClampMagnitude(Rigidbody.velocity, Speed);
+            while (true)
+            {
+                Rigidbody.AddForce(Speed * Time.deltaTime * _direction);
+                Rigidbody.velocity = Vector2.ClampMagnitude(Rigidbody.velocity, Speed);
+
+                yield return null;
+            }
         }
 
         protected override void OnTriggerEnter2D(Collider2D other)
         {
+            base.OnTriggerEnter2D(other);
             Destroyed?.Invoke(this, transform.position);
         }
     }

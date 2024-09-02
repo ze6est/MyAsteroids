@@ -13,6 +13,5 @@ namespace MyAsteroids.CodeBase.Ships
             if (other.TryGetComponent<Enemie>(out _))
                 Died?.Invoke();
         }
-
     }
 }

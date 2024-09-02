@@ -4,6 +4,7 @@ using MyAsteroids.CodeBase.Enemies;
 using MyAsteroids.CodeBase.Pool.Enemies;
 using MyAsteroids.CodeBase.Ships;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace MyAsteroids.CodeBase.Spawners
 {
@@ -16,7 +17,7 @@ namespace MyAsteroids.CodeBase.Spawners
         private EnemiesSpawnerData _enemiesSpawnerData;
         private Ship _target;
 
-        private Coroutine _spawnEnemieJob;
+        public event UnityAction EnemieDestroyed;
 
         public EnemiesSpawner(EnemiesSpawnerData enemiesSpawnerData, AsteroidPool asteroidPool,
             UfoPool ufoPool, AsteroidSmallPool asteroidSmallPool)
@@ -47,6 +48,7 @@ namespace MyAsteroids.CodeBase.Spawners
                     Asteroid asteroid = _asteroidPool.GetFreeObject();
                     asteroid.transform.position = position;
                     asteroid.CalculateDirectionNormalized();
+                    asteroid.StartMove();
                     asteroid.Destroyed += OnEnemieDestroyed;
                 }
                 else
@@ -54,6 +56,7 @@ namespace MyAsteroids.CodeBase.Spawners
                     Ufo ufo = _ufoPool.GetFreeObject();
                     ufo.transform.position = position;
                     ufo.Init(_target.transform);
+                    ufo.StartMove();
                     ufo.Destroyed += OnEnemieDestroyed;
                 }
 
@@ -75,6 +78,8 @@ namespace MyAsteroids.CodeBase.Spawners
                     CrachAsteroidSmall(asteroidSmall);
                     break;
             }
+            
+            EnemieDestroyed?.Invoke();
         }
 
         private void CrashAsteroid(Asteroid asteroid, Vector2 position)
@@ -84,6 +89,7 @@ namespace MyAsteroids.CodeBase.Spawners
                 AsteroidSmall asteroidSmall = _asteroidSmallPool.GetFreeObject();
                 asteroidSmall.transform.position = position;
                 asteroidSmall.CalculateDirectionNormalized();
+                asteroidSmall.StartMove();
                 asteroidSmall.Destroyed += OnEnemieDestroyed;
             }
             

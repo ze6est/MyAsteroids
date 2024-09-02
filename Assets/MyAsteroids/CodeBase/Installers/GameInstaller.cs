@@ -12,6 +12,7 @@ namespace MyAsteroids.CodeBase.Installers
         {
             Container.BindInstance(_shipHUD);
             Container.Bind<EntryPoint>().AsSingle().NonLazy();
+            Container.Bind<ScoreCounter>().AsSingle().NonLazy();
         }
     }
 }

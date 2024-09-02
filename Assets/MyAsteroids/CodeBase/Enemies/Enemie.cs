@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace MyAsteroids.CodeBase.Enemies
@@ -8,8 +9,14 @@ namespace MyAsteroids.CodeBase.Enemies
         
         protected float Speed;
         
-        protected abstract void Move();
+        private Coroutine _move;
+        
+        public void StartMove() => 
+            _move = StartCoroutine(Move());
 
-        protected abstract void OnTriggerEnter2D(Collider2D other);
+        protected abstract IEnumerator Move();
+
+        protected virtual void OnTriggerEnter2D(Collider2D other) => 
+            StopCoroutine(_move);
     }
 }
