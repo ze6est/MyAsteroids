@@ -705,6 +705,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &834558254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 834558255}
+  m_Layer: 0
+  m_Name: EnemiesContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &834558255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834558254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &851545657
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,8 +1016,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1410783036}
   - component: {fileID: 1410783035}
-  - component: {fileID: 1410783038}
   - component: {fileID: 1410783037}
+  - component: {fileID: 1410783039}
+  - component: {fileID: 1410783040}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -1009,7 +1041,8 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 1410783037}
-  - {fileID: 1410783038}
+  - {fileID: 1410783039}
+  - {fileID: 1410783040}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1071,7 +1104,7 @@ MonoBehaviour:
     BulletMaxSpeed: 10
     LaserStartSpeed: 3
     LaserMaxSpeed: 7
---- !u!114 &1410783038
+--- !u!114 &1410783039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1080,7 +1113,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 1410783033}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ddc15254649d7141865d48b999a7ced, type: 3}
+  m_Script: {fileID: 11500000, guid: b1e3259c8be84d3ea874a36ab7e8002b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnerData:
+    SpawnRadius: 5
+    SpawnTime: 3
+    CountAsteroidsSmall: 3
+  _asteroidPrefab: {fileID: 8606458771472759921, guid: 226ef5802f6a74f459c2beb57689d72a, type: 3}
+  _asteroidSmallPrefab: {fileID: 3788906095241665430, guid: 2806327801e96834f81df8e3e3ed0260, type: 3}
+  _ufoPrefab: {fileID: 3712556818441684640, guid: 8a9668a2323249046a02a2e561ced77e, type: 3}
+  _asteroidPoolData:
+    Capacity: 10
+    IsAutoExpand: 1
+  _asteroidSmallPoolData:
+    Capacity: 15
+    IsAutoExpand: 1
+  _ufoPoolData:
+    Capacity: 10
+    IsAutoExpand: 1
+  _enemiesContainer: {fileID: 834558255}
+--- !u!114 &1410783040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410783033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4717818caff9490b8f776e04828a15a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _shipHUD: {fileID: 2126623845}

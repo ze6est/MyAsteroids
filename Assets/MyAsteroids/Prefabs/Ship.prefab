@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2386646263187670431}
   - component: {fileID: 5173047614852587745}
   - component: {fileID: 6902129429061814743}
+  - component: {fileID: 8421224013190897125}
   m_Layer: 7
   m_Name: Ship
   m_TagString: Untagged
@@ -113,6 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5991d4ee93224e3587d4f85b752d6bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shipMover: {fileID: 2758836473858441879}
+  _laserGun: {fileID: 2223566282527814303}
 --- !u!114 &2758836473858441879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +163,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4aee3bfdaf7647cb8d4490f540d12b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8421224013190897125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2630867494501905622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a1e4b0cc0d82564a9676311776506ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2157475868356248156
@@ -223,6 +238,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d68b2c483e9abb243ab524aee3241379, type: 3}
+--- !u!114 &2223566282527814303 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 228369801439948995, guid: d68b2c483e9abb243ab524aee3241379, type: 3}
+  m_PrefabInstance: {fileID: 2157475868356248156}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9138a0b679b833b42a4a0a16be2a1bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3039690668260207450 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4026150248603855110, guid: d68b2c483e9abb243ab524aee3241379, type: 3}

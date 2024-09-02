@@ -1,4 +1,5 @@
 using MyAsteroids.CodeBase.Data;
+using MyAsteroids.CodeBase.Data.Ammunitions;
 using MyAsteroids.CodeBase.Factories;
 using MyAsteroids.CodeBase.Inputs;
 using MyAsteroids.CodeBase.Ships;
@@ -27,7 +28,7 @@ namespace MyAsteroids.CodeBase.Installers
 
             Container.Bind<ShipInputs>().AsSingle();
 
-            Container.Bind<ShipFactory>().AsSingle().WithArguments(_shipPrefab);
+            Container.Bind<ShipFactory>().AsSingle().WithArguments(_shipPrefab).NonLazy();
         }
     }
 }

@@ -1,8 +1,7 @@
 using System.Collections;
 using MyAsteroids.CodeBase.Ammunitions;
-using MyAsteroids.CodeBase.Data;
-using MyAsteroids.CodeBase.Factories.Ammunitions.Lasers;
-using MyAsteroids.CodeBase.Spawners;
+using MyAsteroids.CodeBase.Data.Ammunitions;
+using MyAsteroids.CodeBase.Spawners.Ammunitions;
 using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
@@ -28,9 +27,8 @@ namespace MyAsteroids.CodeBase.Gun
         [Inject]
         public void Construct(LaserPoolData laserPoolData, IInstantiator instantiator)
         {
-            LaserSpawnerFactory laserSpawnerFactory = new LaserSpawnerFactory(_prefab, transform, laserPoolData, instantiator);
-            _laserSpawner = laserSpawnerFactory.Create();
             _transform = transform;
+            _laserSpawner = new LaserSpawner(_prefab, _transform, laserPoolData, instantiator);
         }
         
         private void Start()

@@ -1,9 +1,6 @@
 using MyAsteroids.CodeBase.Ammunitions;
-using MyAsteroids.CodeBase.Data;
-using MyAsteroids.CodeBase.Factories;
-using MyAsteroids.CodeBase.Factories.Ammunitions;
-using MyAsteroids.CodeBase.Factories.Ammunitions.Bullets;
-using MyAsteroids.CodeBase.Spawners;
+using MyAsteroids.CodeBase.Data.Ammunitions;
+using MyAsteroids.CodeBase.Spawners.Ammunitions;
 using UnityEngine;
 using Zenject;
 
@@ -19,9 +16,8 @@ namespace MyAsteroids.CodeBase.Gun
         [Inject]
         public void Construct(BulletPoolData bulletPoolData, IInstantiator instantiator)
         {
-            BulletSpawnerFactory bulletSpawnerFactory = new BulletSpawnerFactory(_prefab, transform, bulletPoolData, instantiator);
-            _bulletSpawner = bulletSpawnerFactory.Create();
             _transform = transform;
+            _bulletSpawner = new BulletSpawner(_prefab, _transform, bulletPoolData, instantiator);
         }
         
         public void Shoot() => 
