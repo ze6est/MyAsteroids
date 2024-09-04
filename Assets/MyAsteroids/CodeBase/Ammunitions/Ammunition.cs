@@ -1,5 +1,4 @@
 using MyAsteroids.CodeBase.Data;
-using MyAsteroids.CodeBase.Data.Ammunitions;
 using UnityEngine;
 using Zenject;
 
@@ -14,7 +13,7 @@ namespace MyAsteroids.CodeBase.Ammunitions
         private Rigidbody2D _rigidbody;
 
         [Inject]
-        public abstract void Construct(AmmunitionsData ammunitionsData);
+        public abstract void Construct(GameData data);
         
         private void Awake() => 
             _rigidbody = GetComponent<Rigidbody2D>();

@@ -20,11 +20,11 @@ namespace MyAsteroids.CodeBase.Ships
         public float Velocity { get; private set; }
 
         [Inject]
-        public void Construct(ShipData shipData, ShipInputs shipInputs)
+        public void Construct(GameData data, ShipInputs shipInputs)
         {
-            _acceleration = shipData.Acceleration;
-            _deceleration = shipData.Deceleration;
-            _maxSpeed = shipData.MaxSpeed;
+            _acceleration = data.ShipData.Acceleration;
+            _deceleration = data.ShipData.Deceleration;
+            _maxSpeed = data.ShipData.MaxSpeed;
 
             _shipInputs = shipInputs;
         }

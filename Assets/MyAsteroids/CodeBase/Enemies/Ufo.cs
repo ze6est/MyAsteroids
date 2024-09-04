@@ -1,5 +1,5 @@
 using System.Collections;
-using MyAsteroids.CodeBase.Data.Enemies;
+using MyAsteroids.CodeBase.Data;
 using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
@@ -13,8 +13,8 @@ namespace MyAsteroids.CodeBase.Enemies
         public event UnityAction<Ufo, Vector2> Destroyed;
         
         [Inject]
-        public void Construct(UfoData data) => 
-            Speed = data.Speed;
+        public void Construct(GameData data) => 
+            Speed = data.UfoData.Speed;
 
         public void Init(Transform target) => 
             _target = target;

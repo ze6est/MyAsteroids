@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using MyAsteroids.CodeBase.Data;
 using MyAsteroids.CodeBase.Data.Enemies;
 using MyAsteroids.CodeBase.Enemies;
 using MyAsteroids.CodeBase.Pool.Enemies;
@@ -24,10 +25,10 @@ namespace MyAsteroids.CodeBase.Spawners
 
         public event UnityAction EnemieDestroyed;
 
-        public EnemiesSpawner(EnemiesSpawnerData enemiesSpawnerData, AsteroidPool asteroidPool,
+        public EnemiesSpawner(GameData data, AsteroidPool asteroidPool,
             UfoPool ufoPool, AsteroidSmallPool asteroidSmallPool)
         {
-            _enemiesSpawnerData = enemiesSpawnerData;
+            _enemiesSpawnerData = data.SpawnerData;
             _asteroidPool = asteroidPool;
             _ufoPool = ufoPool;
             _asteroidSmallPool = asteroidSmallPool;

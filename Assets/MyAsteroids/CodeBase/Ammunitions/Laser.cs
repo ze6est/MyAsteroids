@@ -1,5 +1,4 @@
 using MyAsteroids.CodeBase.Data;
-using MyAsteroids.CodeBase.Data.Ammunitions;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,10 +8,10 @@ namespace MyAsteroids.CodeBase.Ammunitions
     {
         public event UnityAction<Laser> Destroyed;
         
-        public override void Construct(AmmunitionsData ammunitionsData)
+        public override void Construct(GameData data)
         {
-            StartSpeed = ammunitionsData.LaserStartSpeed;
-            MaxSpeed = ammunitionsData.LaserMaxSpeed;
+            StartSpeed = data.AmmunitionsData.LaserStartSpeed;
+            MaxSpeed = data.AmmunitionsData.LaserMaxSpeed;
         }
         
         protected void OnTriggerEnter2D(Collider2D other)

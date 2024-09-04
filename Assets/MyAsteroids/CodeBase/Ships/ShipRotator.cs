@@ -19,9 +19,9 @@ namespace MyAsteroids.CodeBase.Ships
         private Vector2 _lookTo;
 
         [Inject]
-        public void Construct(ShipData shipData, ShipInputs shipInputs)
+        public void Construct(GameData data, ShipInputs shipInputs)
         {
-            _speed = shipData.RotateSpeed;
+            _speed = data.ShipData.RotateSpeed;
             _shipInputs = shipInputs;
         }
         

@@ -1,5 +1,5 @@
 using System.Collections;
-using MyAsteroids.CodeBase.Data.Enemies;
+using MyAsteroids.CodeBase.Data;
 using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
@@ -16,11 +16,11 @@ namespace MyAsteroids.CodeBase.Enemies
         public event UnityAction<Asteroid, Vector2> Destroyed;
 
         [Inject]
-        public void Construct(AsteroidData data)
+        public void Construct(GameData data)
         {
-            Speed = data.Speed;
-            _maxMovePositionX = data.MaxMovePositionX;
-            _maxMovePositionY = data.MaxMovePositionY;
+            Speed = data.AsteroidData.Speed;
+            _maxMovePositionX = data.AsteroidData.MaxMovePositionX;
+            _maxMovePositionY = data.AsteroidData.MaxMovePositionY;
         }
 
         public void CalculateDirectionNormalized()

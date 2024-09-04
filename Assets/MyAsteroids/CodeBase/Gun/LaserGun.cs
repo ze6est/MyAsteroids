@@ -1,5 +1,6 @@
 using System.Collections;
 using MyAsteroids.CodeBase.Ammunitions;
+using MyAsteroids.CodeBase.Data;
 using MyAsteroids.CodeBase.Data.Ammunitions;
 using MyAsteroids.CodeBase.Spawners.Ammunitions;
 using UnityEngine;
@@ -27,10 +28,10 @@ namespace MyAsteroids.CodeBase.Gun
         public event UnityAction<float> LaserFailureTimeChanged;
 
         [Inject]
-        public void Construct(LaserPoolData laserPoolData, IInstantiator instantiator)
+        public void Construct(GameData data, IInstantiator instantiator)
         {
             _transform = transform;
-            _laserSpawner = new LaserSpawner(_prefab, _transform, laserPoolData, instantiator);
+            _laserSpawner = new LaserSpawner(_prefab, _transform, data.LaserPoolData, instantiator);
         }
         
         private void Start()

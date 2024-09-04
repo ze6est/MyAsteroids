@@ -1504,6 +1504,7 @@ GameObject:
   - component: {fileID: 1410783037}
   - component: {fileID: 1410783039}
   - component: {fileID: 1410783040}
+  - component: {fileID: 1410783041}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -1528,6 +1529,7 @@ MonoBehaviour:
   - {fileID: 1410783037}
   - {fileID: 1410783039}
   - {fileID: 1410783040}
+  - {fileID: 1410783041}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1573,22 +1575,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shipPrefab: {fileID: -5332891010994777208, guid: 3ccc12d9173505c498053fd0da3dd52d, type: 3}
-  _shipData:
-    Acceleration: 200
-    Deceleration: 0.5
-    MaxSpeed: 4
-    RotateSpeed: 1.5
-  _bulletPoolData:
-    Capacity: 20
-    IsAutoExpand: 1
-  _laserPoolData:
-    Capacity: 10
-    IsAutoExpand: 0
-  _ammunitionsData:
-    BulletStartSpeed: 1
-    BulletMaxSpeed: 10
-    LaserStartSpeed: 3
-    LaserMaxSpeed: 7
 --- !u!114 &1410783039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1601,30 +1587,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e3259c8be84d3ea874a36ab7e8002b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnerData:
-    SpawnRadius: 9
-    SpawnTime: 3
-    CountAsteroidsSmall: 3
   _asteroidPrefab: {fileID: 8606458771472759921, guid: 226ef5802f6a74f459c2beb57689d72a, type: 3}
   _asteroidSmallPrefab: {fileID: 3788906095241665430, guid: 2806327801e96834f81df8e3e3ed0260, type: 3}
   _ufoPrefab: {fileID: 3712556818441684640, guid: 8a9668a2323249046a02a2e561ced77e, type: 3}
-  _asteroidData:
-    Speed: 0.4
-    MaxMovePositionX: 2
-    MaxMovePositionY: 1
-  _asteroidSmallData:
-    Speed: 0.7
-  _ufoData:
-    Speed: 1.8
-  _asteroidPoolData:
-    Capacity: 10
-    IsAutoExpand: 1
-  _asteroidSmallPoolData:
-    Capacity: 15
-    IsAutoExpand: 1
-  _ufoPoolData:
-    Capacity: 10
-    IsAutoExpand: 1
   _enemiesContainer: {fileID: 834558255}
 --- !u!114 &1410783040
 MonoBehaviour:
@@ -1640,6 +1605,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shipHUD: {fileID: 2126623845}
   _restartWindow: {fileID: 1382762823}
+--- !u!114 &1410783041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410783033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e0f0f2c89d4a16a9902da93d94f055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameConfig: {fileID: 11400000, guid: c5705677f1453f14c83e51cf97ba8a5a, type: 2}
 --- !u!1 &1665918738
 GameObject:
   m_ObjectHideFlags: 0

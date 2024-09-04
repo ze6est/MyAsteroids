@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "930726797020",
+    "project_id": "myasteroids-fa5d3",
+    "storage_bucket": "myasteroids-fa5d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930726797020:android:0e61be8f9e9b0617dd5e19",
+        "android_client_info": {
+          "package_name": "com.RomanKopylov.MyAsteroids"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9q_6ZApDKBbW58FDaH0bv2FKU7q4dK0s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
