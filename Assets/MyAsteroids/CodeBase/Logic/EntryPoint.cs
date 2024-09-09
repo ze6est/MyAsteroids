@@ -3,7 +3,7 @@ using MyAsteroids.CodeBase.Ships;
 using MyAsteroids.CodeBase.Spawners;
 using MyAsteroids.CodeBase.UI;
 
-namespace MyAsteroids.CodeBase
+namespace MyAsteroids.CodeBase.Logic
 {
     public class EntryPoint
     {

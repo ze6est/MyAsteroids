@@ -5,7 +5,7 @@ using MyAsteroids.CodeBase.UI;
 using UnityEngine;
 using Zenject;
 
-namespace MyAsteroids.CodeBase
+namespace MyAsteroids.CodeBase.Logic
 {
     public class Restarter : IDisposable
     {

@@ -3,21 +3,22 @@ using Cysharp.Threading.Tasks;
 using Firebase.RemoteConfig;
 using MyAsteroids.CodeBase.Data;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace MyAsteroids.CodeBase.Services
 {
     public class FirebaseRemoteConfig
     {
         private GameData _datas;
+        
+        public event UnityAction Completed;
 
         public FirebaseRemoteConfig(GameData datas)
         {
             _datas = datas;
-            
-            GetRemoteConfigsAsync().Forget();
         }
 
-        private async UniTaskVoid GetRemoteConfigsAsync()
+        public async UniTaskVoid GetRemoteConfigsAsync()
         {
             Firebase.RemoteConfig.FirebaseRemoteConfig remoteConfig = Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance;
 
@@ -46,6 +47,8 @@ namespace MyAsteroids.CodeBase.Services
                 _datas.AsteroidSmallPoolData = data.AsteroidSmallPoolData;
                 _datas.UfoPoolData = data.UfoPoolData;
             }
+            
+            Completed?.Invoke();
         }
     }
 }

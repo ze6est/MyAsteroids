@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using MyAsteroids.CodeBase.Data;
 using MyAsteroids.CodeBase.Data.Enemies;
 using MyAsteroids.CodeBase.Enemies;
+using MyAsteroids.CodeBase.Logic;
 using MyAsteroids.CodeBase.Pool.Enemies;
 using MyAsteroids.CodeBase.Ships;
 using UnityEngine;

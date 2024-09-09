@@ -1,4 +1,4 @@
-namespace MyAsteroids.CodeBase
+namespace MyAsteroids.CodeBase.Logic
 {
     public interface IRestarter
     {

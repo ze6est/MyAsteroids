@@ -1,4 +1,5 @@
 using MyAsteroids.CodeBase.Data;
+using MyAsteroids.CodeBase.Logic;
 using UnityEngine;
 using UnityEngine.Events;
 

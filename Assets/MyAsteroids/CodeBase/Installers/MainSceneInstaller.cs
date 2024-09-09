@@ -1,10 +1,11 @@
+using MyAsteroids.CodeBase.Logic;
 using MyAsteroids.CodeBase.UI;
 using UnityEngine;
 using Zenject;
 
 namespace MyAsteroids.CodeBase.Installers
 {
-    public class GameInstaller : MonoInstaller
+    public class MainSceneInstaller : MonoInstaller
     {
         [SerializeField] private ShipHUD _shipHUD;
         [SerializeField] private RestartWindow _restartWindow;

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using MyAsteroids.CodeBase.Gun;
 using MyAsteroids.CodeBase.Inputs;
+using MyAsteroids.CodeBase.Logic;
 using UnityEngine;
 using Zenject;
 

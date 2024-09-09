@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2354799910160696888}
   - component: {fileID: 1478674672427529119}
+  - component: {fileID: 1324863573550038186}
   m_Layer: 0
   m_Name: ProjectContext
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1478674672427529119
 MonoBehaviour:
@@ -45,7 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
-  _monoInstallers: []
+  _monoInstallers:
+  - {fileID: 1324863573550038186}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
   _editorReflectionBakingCoverageMode: 0
@@ -60,3 +62,54 @@ MonoBehaviour:
       _missingHandlerDefaultResponse: 2
       _requireStrictUnsubscribe: 0
       _defaultAsyncTickPriority: 1
+--- !u!114 &1324863573550038186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6248625345425581320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e0f0f2c89d4a16a9902da93d94f055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameData:
+    ShipData:
+      Acceleration: 200
+      Deceleration: 0.5
+      MaxSpeed: 4
+      RotateSpeed: 1.5
+    AmmunitionsData:
+      BulletStartSpeed: 10
+      BulletMaxSpeed: 15
+      LaserStartSpeed: 5
+      LaserMaxSpeed: 10
+    BulletPoolData:
+      Capacity: 20
+      IsAutoExpand: 1
+    LaserPoolData:
+      Capacity: 10
+      IsAutoExpand: 0
+    SpawnerData:
+      SpawnRadius: 8
+      SpawnTime: 3
+      CountAsteroidsSmall: 3
+    AsteroidData:
+      Speed: 0.5
+      MaxMovePositionX: 2
+      MaxMovePositionY: 1
+    AsteroidSmallData:
+      Speed: 0.5
+    UfoData:
+      Speed: 0.5
+    AsteroidPoolData:
+      Capacity: 10
+      IsAutoExpand: 1
+    AsteroidSmallPoolData:
+      Capacity: 15
+      IsAutoExpand: 1
+    UfoPoolData:
+      Capacity: 10
+      IsAutoExpand: 1
+  _curtain: {fileID: 8189373465036801766, guid: 763b9ad00911b0f45813ee8956432380, type: 3}

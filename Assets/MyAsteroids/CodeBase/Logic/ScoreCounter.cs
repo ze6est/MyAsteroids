@@ -1,7 +1,7 @@
 using System;
 using MyAsteroids.CodeBase.Spawners;
 
-namespace MyAsteroids.CodeBase
+namespace MyAsteroids.CodeBase.Logic
 {
     public class ScoreCounter : IDisposable, IRestarter
     {

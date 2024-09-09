@@ -1,5 +1,6 @@
 using MyAsteroids.CodeBase.Ammunitions;
 using MyAsteroids.CodeBase.Data;
+using MyAsteroids.CodeBase.Logic;
 using MyAsteroids.CodeBase.Spawners.Ammunitions;
 using UnityEngine;
 using Zenject;
