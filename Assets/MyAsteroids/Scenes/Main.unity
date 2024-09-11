@@ -1572,7 +1572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2054631ed63e62a4aa43c75373802671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shipPrefab: {fileID: -5332891010994777208, guid: 3ccc12d9173505c498053fd0da3dd52d, type: 3}
+  _shipConfig: {fileID: 11400000, guid: 4b209d2306fd9bd40a74a0090da24514, type: 2}
 --- !u!114 &1410783039
 MonoBehaviour:
   m_ObjectHideFlags: 0

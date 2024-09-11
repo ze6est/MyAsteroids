@@ -1,3 +1,5 @@
+using MyAsteroids.CodeBase.Configs;
+using MyAsteroids.CodeBase.Factories;
 using MyAsteroids.CodeBase.Inputs;
 using MyAsteroids.CodeBase.Ships;
 using UnityEngine;
@@ -7,13 +9,14 @@ namespace MyAsteroids.CodeBase.Installers
 {
     public class ShipInstaller : MonoInstaller
     {
-        [SerializeField] private Ship _shipPrefab;
+        [SerializeField] private ShipConfig _shipConfig;
 
         public override void InstallBindings()
         {
+            Container.BindInstance(_shipConfig);
             Container.Bind<ShipInputs>().AsSingle();
             
-            Container.Bind<Ship>().FromComponentInNewPrefab(_shipPrefab).AsSingle();
+            Container.Bind<Ship>().FromFactory<ShipFactory>().AsSingle();
         }
     }
 }

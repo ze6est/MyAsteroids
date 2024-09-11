@@ -38,9 +38,5 @@ namespace MyAsteroids.CodeBase.Ships
             _shipMover.Restart();
             _shipShooter.Restart();
         }
-        
-        public class Factory : PlaceholderFactory<Ship>
-        {
-        }
     }
 }
