@@ -26,7 +26,7 @@ namespace MyAsteroids.CodeBase.Logic
         
         public void Initialize()
         {
-            _shipTriggerObserver = _ship.ShipTriggerObserver;
+            _shipTriggerObserver = _ship.TriggerObserver;
             _shipTriggerObserver.Died += OnDied;
             
             _restartWindow.Restart.AddListener(Restart);

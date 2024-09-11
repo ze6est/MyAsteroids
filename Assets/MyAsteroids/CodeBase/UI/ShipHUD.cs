@@ -24,7 +24,7 @@ namespace MyAsteroids.CodeBase.UI
         [Inject]
         public void Construct(Ship ship)
         {
-            _shipMover = ship.ShipMover;
+            _shipMover = ship.Mover;
             _laserGun = ship.LaserGun;
             
             _shipTransform = _shipMover.transform;

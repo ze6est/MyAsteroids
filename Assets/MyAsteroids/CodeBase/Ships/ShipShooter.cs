@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using MyAsteroids.CodeBase.Gun;
-using MyAsteroids.CodeBase.Inputs;
 using MyAsteroids.CodeBase.Logic;
 using UnityEngine;
 using Zenject;
@@ -11,37 +10,23 @@ namespace MyAsteroids.CodeBase.Ships
     {
         [SerializeField] private ShipModel _model;
         
-        private ShipInputs _shipInputs;
         private List<BulletGun> _bulletsGun;
         private LaserGun _laserGun;
 
         [Inject]
-        public void Construct(ShipInputs shipInputs)
+        public void Construct()
         {
             _bulletsGun = _model.GetBulletGuns();
             _laserGun = _model.GetLaserGun();
-            _shipInputs = shipInputs;
         }
 
-        private void OnEnable()
-        {
-            _shipInputs.BulletShooted += OnBulletShooted;
-            _shipInputs.LaserShooted += OnLaserShooted;
-        }
-
-        private void OnDisable()
-        {
-            _shipInputs.BulletShooted -= OnBulletShooted;
-            _shipInputs.LaserShooted -= OnLaserShooted;
-        }
-
-        public void OnBulletShooted()
+        public void BulletShoot()
         {
             foreach (BulletGun bulletGun in _bulletsGun)
                 bulletGun.Shoot();
         }
         
-        public void OnLaserShooted() => 
+        public void LaserShoot() => 
             _laserGun.Shoot();
 
         public void Restart()

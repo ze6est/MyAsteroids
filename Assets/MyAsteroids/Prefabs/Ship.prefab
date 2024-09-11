@@ -114,10 +114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5991d4ee93224e3587d4f85b752d6bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shipMover: {fileID: 2758836473858441879}
-  _shipShooter: {fileID: 5173047614852587745}
-  _shipTriggerObserver: {fileID: 8421224013190897125}
-  _laserGun: {fileID: 2223566282527814303}
+  <Mover>k__BackingField: {fileID: 2758836473858441879}
+  <Rotator>k__BackingField: {fileID: 2386646263187670431}
+  <Shooter>k__BackingField: {fileID: 5173047614852587745}
+  <TriggerObserver>k__BackingField: {fileID: 8421224013190897125}
+  <LaserGun>k__BackingField: {fileID: 2223566282527814303}
 --- !u!114 &2758836473858441879
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,8 +13,11 @@ namespace MyAsteroids.CodeBase.Installers
 
         public override void InstallBindings()
         {
+            Container.Bind<InputActions>().AsSingle();
+            Container.Bind<ShipInputHandler>().AsSingle();
+            Container.BindInterfacesTo<ShipController>().AsSingle().NonLazy();
+            
             Container.BindInstance(_shipConfig);
-            Container.Bind<ShipInputs>().AsSingle();
             
             Container.Bind<Ship>().FromFactory<ShipFactory>().AsSingle();
         }
