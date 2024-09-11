@@ -1,9 +1,10 @@
 using System;
 using MyAsteroids.CodeBase.Spawners;
+using Zenject;
 
 namespace MyAsteroids.CodeBase.Logic
 {
-    public class ScoreCounter : IDisposable, IRestarter
+    public class ScoreCounter : IInitializable, IDisposable, IRestarter
     {
         private int _score;
         
@@ -15,8 +16,11 @@ namespace MyAsteroids.CodeBase.Logic
         public ScoreCounter(EnemiesSpawner enemiesSpawner)
         {
             _enemiesSpawner = enemiesSpawner;
+        }
+        
+        public void Initialize()
+        {
             _score = 0;
-
             _enemiesSpawner.EnemieDestroyed += OnEnemieDestroyed;
         }
         

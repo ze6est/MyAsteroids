@@ -8,14 +8,17 @@ using MyAsteroids.CodeBase.Pool.Enemies;
 using MyAsteroids.CodeBase.Ships;
 using UnityEngine;
 using UnityEngine.Events;
+using Zenject;
 
 namespace MyAsteroids.CodeBase.Spawners
 {
-    public class EnemiesSpawner : IRestarter
+    public class EnemiesSpawner : IInitializable, IRestarter
     {
-        private AsteroidPool _asteroidPool;
-        private UfoPool _ufoPool;
-        private AsteroidSmallPool _asteroidSmallPool;
+        private readonly GameData _data;
+        
+        private readonly AsteroidPool _asteroidPool;
+        private readonly UfoPool _ufoPool;
+        private readonly AsteroidSmallPool _asteroidSmallPool;
 
         private List<Asteroid> _activeAsteroids;
         private List<AsteroidSmall> _activeAsteroidsSmall;
@@ -27,21 +30,24 @@ namespace MyAsteroids.CodeBase.Spawners
         public event UnityAction EnemieDestroyed;
 
         public EnemiesSpawner(GameData data, AsteroidPool asteroidPool,
-            UfoPool ufoPool, AsteroidSmallPool asteroidSmallPool)
+            UfoPool ufoPool, AsteroidSmallPool asteroidSmallPool, Ship ship)
         {
-            _enemiesSpawnerData = data.SpawnerData;
+            _data = data;
+            
             _asteroidPool = asteroidPool;
             _ufoPool = ufoPool;
             _asteroidSmallPool = asteroidSmallPool;
-
+            _target = ship;
+        }
+        
+        public void Initialize()
+        {
+            _enemiesSpawnerData = _data.SpawnerData;
+            
             _activeAsteroids = new();
             _activeAsteroidsSmall = new ();
             _activeUfos = new();
-        }
-
-        public void Start(Ship ship)
-        {
-            _target = ship;
+            
             SpawnEnemies().Forget();
         }
         

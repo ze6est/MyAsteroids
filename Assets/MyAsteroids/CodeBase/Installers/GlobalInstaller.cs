@@ -1,12 +1,12 @@
 using MyAsteroids.CodeBase.Data;
 using MyAsteroids.CodeBase.Logic;
-using MyAsteroids.CodeBase.Services;
+using MyAsteroids.CodeBase.Services.RemoteConfig;
 using UnityEngine;
 using Zenject;
 
 namespace MyAsteroids.CodeBase.Installers
 {
-    public class DataInstaller : MonoInstaller
+    public class GlobalInstaller : MonoInstaller
     {
         [SerializeField] private GameData _gameData;
         [SerializeField] private LoadingCurtain _curtain;
@@ -14,13 +14,12 @@ namespace MyAsteroids.CodeBase.Installers
         public override void InstallBindings()
         {
             Container.BindInstance(_gameData);
-
             
             LoadingCurtain curtain = Container.InstantiatePrefabForComponent<LoadingCurtain>(_curtain);
 
             Container.BindInstance(curtain);
-            Container.Bind<InitialEntryPoint>().AsSingle().NonLazy();
-            Container.Bind<FirebaseRemoteConfig>().AsSingle();
+            Container.BindInterfacesTo<EntryPoint>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<FirebaseRemoteConfig>().AsSingle();
             Container.Bind<SceneLoader>().AsSingle();
         }
     }

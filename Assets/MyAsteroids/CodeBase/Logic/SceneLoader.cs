@@ -7,7 +7,12 @@ namespace MyAsteroids.CodeBase.Logic
 {
     public class SceneLoader
     {
-        public async UniTask Load(string name, UnityAction onLoaded = null)
+        public void LoadMainScene(UnityAction onLoaded = null)
+        {
+            Load("Main", onLoaded).Forget();
+        }
+        
+        private async UniTask Load(string name, UnityAction onLoaded = null)
         {
             if (SceneManager.GetActiveScene().name == name)
             {

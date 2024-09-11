@@ -1,8 +1,10 @@
 using System.Collections;
 using MyAsteroids.CodeBase.Gun;
+using MyAsteroids.CodeBase.Logic;
 using MyAsteroids.CodeBase.Ships;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace MyAsteroids.CodeBase.UI
 {
@@ -14,16 +16,18 @@ namespace MyAsteroids.CodeBase.UI
         [SerializeField] private TextMeshProUGUI _laserCharges;
         [SerializeField] private TextMeshProUGUI _laserFailureTime;
 
+        private Ship _ship;
         private ShipMover _shipMover;
         private LaserGun _laserGun;
-        private Transform _ship;
-        
+        private Transform _shipTransform;
+
+        [Inject]
         public void Construct(Ship ship)
         {
             _shipMover = ship.ShipMover;
             _laserGun = ship.LaserGun;
             
-            _ship = _shipMover.transform;
+            _shipTransform = _shipMover.transform;
             _laserGun.LaserChargesChanged += OnLaserChargesChanged;
             _laserGun.LaserFailureTimeChanged += OnLaserFailureTimeChanged;
 
@@ -34,10 +38,10 @@ namespace MyAsteroids.CodeBase.UI
         {
             while (true)
             {
-                Vector2 coordinates = _ship.position;
+                Vector2 coordinates = _shipTransform.position;
             
                 _coordinates.text = $"Coordinates: {coordinates}";
-                _angleRotation.text = $"Angle rotation: {(int)_ship.localEulerAngles.z}";
+                _angleRotation.text = $"Angle rotation: {(int)_shipTransform.localEulerAngles.z}";
             
                 string formattedVelocity = $"{_shipMover.Velocity:F2}";
                 _speed.text = $"Speed: {formattedVelocity}";

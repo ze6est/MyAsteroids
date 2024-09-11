@@ -7,6 +7,7 @@ namespace MyAsteroids.CodeBase.Logic
     public class LoadingCurtain : MonoBehaviour
     {
         [SerializeField] private CanvasGroup _curtain;
+        [SerializeField] private float _fadeSpeed = 2f;
 
         public void Show()
         {
@@ -21,8 +22,9 @@ namespace MyAsteroids.CodeBase.Logic
         {
             while(_curtain.alpha > 0)
             {
-                _curtain.alpha -= 0.1f;
-                yield return new WaitForSeconds(0.03f);
+                _curtain.alpha -= _fadeSpeed * Time.deltaTime;
+                
+                yield return null;
             }
 
             gameObject.SetActive(false);

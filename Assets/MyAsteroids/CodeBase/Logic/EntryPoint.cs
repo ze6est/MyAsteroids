@@ -1,26 +1,29 @@
-using MyAsteroids.CodeBase.Factories;
-using MyAsteroids.CodeBase.Ships;
-using MyAsteroids.CodeBase.Spawners;
-using MyAsteroids.CodeBase.UI;
+using MyAsteroids.CodeBase.Services.RemoteConfig;
+using UnityEngine;
+using Zenject;
 
 namespace MyAsteroids.CodeBase.Logic
 {
-    public class EntryPoint
+    public class EntryPoint : IInitializable
     {
-        private ShipFactory _shipFactory;
-        private ShipHUD _shipHUD;
-        
-        public EntryPoint(ShipFactory shipFactory, ShipHUD shipHUD, EnemiesSpawner enemiesSpawner, Restarter restarter)
-        {
-            _shipFactory = shipFactory;
-            _shipHUD = shipHUD;
+        private readonly IRemoteConfig _remoteConfig;
+        private readonly SceneLoader _sceneLoader;
+        private readonly LoadingCurtain _loadingCurtain;
 
-            Ship ship = _shipFactory.CreateShip();
+        public EntryPoint(IRemoteConfig remoteConfig, SceneLoader sceneLoader, LoadingCurtain loadingCurtain)
+        {
+            _remoteConfig = remoteConfig;
+            _sceneLoader = sceneLoader;
+            _loadingCurtain = loadingCurtain;
+        }
+        
+        public async void Initialize()
+        {
+            _loadingCurtain.Show();
             
-            _shipHUD.Construct(ship);
-            restarter.SetShip(ship);
+            await _remoteConfig.GetRemoteConfigsAsync();
             
-            enemiesSpawner.Start(ship);
+            _sceneLoader.LoadMainScene(_loadingCurtain.Hide);
         }
     }
 }
