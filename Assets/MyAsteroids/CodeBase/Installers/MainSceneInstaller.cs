@@ -10,6 +10,7 @@ namespace MyAsteroids.CodeBase.Installers
         
         [SerializeField] private ShipHUD _shipHUD;
         [SerializeField] private RestartWindow _restartWindow;
+        [SerializeField] private ShopWindow _shopWindow;
         
         public override void InstallBindings()
         {
@@ -17,8 +18,9 @@ namespace MyAsteroids.CodeBase.Installers
             Container.QueueForInject(_shipHUD);
             
             Container.BindInstance(_restartWindow);
+            Container.BindInstance(_shopWindow);
             
-            Container.BindInterfacesAndSelfTo<Restarter>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<GameManager>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<ScoreCounter>().AsSingle().NonLazy();
         }
     }

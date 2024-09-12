@@ -6,7 +6,7 @@ using Zenject;
 
 namespace MyAsteroids.CodeBase.UI
 {
-    public class RestartWindow : MonoBehaviour
+    public class RestartWindow : MonoBehaviour, IWindow
     {
         [SerializeField] private TextMeshProUGUI _score;
         [SerializeField] private Button _restartButton;
@@ -17,10 +17,8 @@ namespace MyAsteroids.CodeBase.UI
             _restartButton.onClick;
 
         [Inject]
-        public void Construct(ScoreCounter scoreCounter)
-        {
+        public void Construct(ScoreCounter scoreCounter) => 
             _scoreCounter = scoreCounter;
-        }
 
         public void Show()
         {
@@ -28,9 +26,7 @@ namespace MyAsteroids.CodeBase.UI
             _score.text = $"Score: {_scoreCounter.Score}";
         }
 
-        public void Hide()
-        {
+        public void Hide() => 
             gameObject.SetActive(false);
-        }
     }
 }
