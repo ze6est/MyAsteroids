@@ -1,5 +1,4 @@
 using MyAsteroids.CodeBase.Services.RemoteConfig;
-using UnityEngine;
 using Zenject;
 
 namespace MyAsteroids.CodeBase.Logic

@@ -1,4 +1,5 @@
 using MyAsteroids.CodeBase.Data;
+using MyAsteroids.CodeBase.Data.Ammunitions;
 using UnityEngine;
 using Zenject;
 
@@ -7,7 +8,7 @@ namespace MyAsteroids.CodeBase.Ammunitions
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract class Ammunition : MonoBehaviour
     {
-        protected GameData Data;
+        protected AmmunitionsData Data;
         
         protected float StartSpeed;
         protected float MaxSpeed;
@@ -15,7 +16,7 @@ namespace MyAsteroids.CodeBase.Ammunitions
         private Rigidbody2D _rigidbody;
 
         [Inject]
-        protected void Construct(GameData data) => 
+        protected void Construct(AmmunitionsData data) => 
             Data = data;
 
         protected virtual void Awake() => 

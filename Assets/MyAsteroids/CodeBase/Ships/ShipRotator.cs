@@ -1,5 +1,4 @@
 using MyAsteroids.CodeBase.Data;
-using MyAsteroids.CodeBase.Inputs;
 using UnityEngine;
 using Zenject;
 
@@ -8,7 +7,7 @@ namespace MyAsteroids.CodeBase.Ships
     [RequireComponent(typeof(Rigidbody2D))]
     public class ShipRotator : MonoBehaviour
     {
-        private GameData _data;
+        private ShipData _data;
         
         private float _speed;
         
@@ -16,12 +15,12 @@ namespace MyAsteroids.CodeBase.Ships
         private Camera _camera;
 
         [Inject]
-        public void Construct(GameData data) => 
+        public void Construct(ShipData data) => 
             _data = data;
 
         private void Awake()
         {
-            _speed = _data.ShipData.RotateSpeed;
+            _speed = _data.RotateSpeed;
             
             _rigidbody = GetComponent<Rigidbody2D>();
             

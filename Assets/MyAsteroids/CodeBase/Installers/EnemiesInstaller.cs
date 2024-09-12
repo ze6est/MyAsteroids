@@ -1,5 +1,3 @@
-using MyAsteroids.CodeBase.Data.Enemies;
-using MyAsteroids.CodeBase.Data.Enemies.Pools;
 using MyAsteroids.CodeBase.Enemies;
 using MyAsteroids.CodeBase.Pool.Enemies;
 using MyAsteroids.CodeBase.Spawners;

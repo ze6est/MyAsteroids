@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using MyAsteroids.CodeBase.Data;
 using MyAsteroids.CodeBase.Data.Enemies;
 using MyAsteroids.CodeBase.Enemies;
 using MyAsteroids.CodeBase.Logic;
@@ -14,7 +13,7 @@ namespace MyAsteroids.CodeBase.Spawners
 {
     public class EnemiesSpawner : IInitializable, IRestarter
     {
-        private readonly GameData _data;
+        private readonly EnemiesSpawnerData _data;
         
         private readonly AsteroidPool _asteroidPool;
         private readonly UfoPool _ufoPool;
@@ -23,13 +22,12 @@ namespace MyAsteroids.CodeBase.Spawners
         private List<Asteroid> _activeAsteroids;
         private List<AsteroidSmall> _activeAsteroidsSmall;
         private List<Ufo> _activeUfos;
-
-        private EnemiesSpawnerData _enemiesSpawnerData;
+        
         private Ship _target;
 
         public event UnityAction EnemieDestroyed;
 
-        public EnemiesSpawner(GameData data, AsteroidPool asteroidPool,
+        public EnemiesSpawner(EnemiesSpawnerData data, AsteroidPool asteroidPool,
             UfoPool ufoPool, AsteroidSmallPool asteroidSmallPool, Ship ship)
         {
             _data = data;
@@ -42,8 +40,6 @@ namespace MyAsteroids.CodeBase.Spawners
         
         public void Initialize()
         {
-            _enemiesSpawnerData = _data.SpawnerData;
-            
             _activeAsteroids = new();
             _activeAsteroidsSmall = new ();
             _activeUfos = new();
@@ -81,7 +77,7 @@ namespace MyAsteroids.CodeBase.Spawners
             while (true)
             {
                 float angle = Random.Range(0, Mathf.PI * 2);
-                Vector3 position = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * _enemiesSpawnerData.SpawnRadius;
+                Vector3 position = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * _data.SpawnRadius;
 
                 int random = Random.Range(0, 101);
 
@@ -104,7 +100,7 @@ namespace MyAsteroids.CodeBase.Spawners
                     ufo.Destroyed += OnEnemieDestroyed;
                 }
 
-                await UniTask.WaitForSeconds(_enemiesSpawnerData.SpawnTime); 
+                await UniTask.WaitForSeconds(_data.SpawnTime); 
             }
         }
 
@@ -128,7 +124,7 @@ namespace MyAsteroids.CodeBase.Spawners
 
         private void CrashAsteroid(Asteroid asteroid, Vector2 position)
         {
-            for (int i = 0; i < _enemiesSpawnerData.CountAsteroidsSmall; i++)
+            for (int i = 0; i < _data.CountAsteroidsSmall; i++)
             {
                 AsteroidSmall asteroidSmall = _asteroidSmallPool.GetFreeObject();
                 _activeAsteroidsSmall.Add(asteroidSmall);

@@ -1,5 +1,5 @@
 using System.Collections;
-using MyAsteroids.CodeBase.Data;
+using MyAsteroids.CodeBase.Data.Enemies;
 using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
@@ -13,9 +13,9 @@ namespace MyAsteroids.CodeBase.Enemies
         public event UnityAction<AsteroidSmall, Vector2> Destroyed;
 
         [Inject]
-        public void Construct(GameData data)
+        public void Construct(AsteroidSmallData data)
         {
-            Speed = data.AsteroidSmallData.Speed;
+            Speed = data.Speed;
         }
 
         public void CalculateDirectionNormalized()

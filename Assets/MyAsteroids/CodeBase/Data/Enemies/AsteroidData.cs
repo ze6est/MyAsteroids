@@ -3,7 +3,7 @@ using System;
 namespace MyAsteroids.CodeBase.Data.Enemies
 {
     [Serializable]
-    public class AsteroidData
+    public class AsteroidData : IData
     {
         public float Speed = 0.5f;
         public float MaxMovePositionX = 2;

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace MyAsteroids.CodeBase.Data.Ammunitions
 {
     [Serializable]
-    public class AmmunitionsData
+    public class AmmunitionsData : IData
     {
         [Header("Bullets")] 
         public float BulletStartSpeed = 10f;

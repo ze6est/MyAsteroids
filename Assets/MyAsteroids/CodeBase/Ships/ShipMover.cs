@@ -8,7 +8,7 @@ namespace MyAsteroids.CodeBase.Ships
     [RequireComponent(typeof(Rigidbody2D))]
     public class ShipMover : MonoBehaviour, IRestarter
     {
-        private GameData _data;
+        private ShipData _data;
         
         private float _acceleration;
         private float _deceleration;
@@ -19,14 +19,14 @@ namespace MyAsteroids.CodeBase.Ships
         public float Velocity { get; private set; }
 
         [Inject]
-        public void Construct(GameData data) => 
+        public void Construct(ShipData data) => 
             _data = data;
 
         private void Awake()
         {
-            _acceleration = _data.ShipData.Acceleration;
-            _deceleration = _data.ShipData.Deceleration;
-            _maxSpeed = _data.ShipData.MaxSpeed;
+            _acceleration = _data.Acceleration;
+            _deceleration = _data.Deceleration;
+            _maxSpeed = _data.MaxSpeed;
             
             _rigidbody = GetComponent<Rigidbody2D>();
         }

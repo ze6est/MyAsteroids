@@ -1,6 +1,5 @@
 using System.Collections;
 using MyAsteroids.CodeBase.Gun;
-using MyAsteroids.CodeBase.Logic;
 using MyAsteroids.CodeBase.Ships;
 using TMPro;
 using UnityEngine;

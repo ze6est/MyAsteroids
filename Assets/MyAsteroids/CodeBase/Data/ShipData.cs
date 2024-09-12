@@ -4,7 +4,7 @@ using UnityEngine;
 namespace MyAsteroids.CodeBase.Data
 {
     [Serializable]
-    public class ShipData
+    public class ShipData : IData
     {
         [Header("Ship Mover")] 
         public float Acceleration = 200f;

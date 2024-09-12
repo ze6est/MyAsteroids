@@ -12,8 +12,8 @@ namespace MyAsteroids.CodeBase.Ammunitions
         {
             base.Awake();
             
-            StartSpeed = Data.AmmunitionsData.LaserStartSpeed;
-            MaxSpeed = Data.AmmunitionsData.LaserMaxSpeed;
+            StartSpeed = Data.LaserStartSpeed;
+            MaxSpeed = Data.LaserMaxSpeed;
         }
         
         protected void OnTriggerEnter2D(Collider2D other)

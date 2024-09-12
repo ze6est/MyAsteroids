@@ -13,30 +13,22 @@ namespace MyAsteroids.CodeBase.Logic
         public string Score => 
             _score.ToString();
 
-        public ScoreCounter(EnemiesSpawner enemiesSpawner)
-        {
+        public ScoreCounter(EnemiesSpawner enemiesSpawner) => 
             _enemiesSpawner = enemiesSpawner;
-        }
-        
+
         public void Initialize()
         {
             _score = 0;
             _enemiesSpawner.EnemieDestroyed += OnEnemieDestroyed;
         }
         
-        public void Dispose()
-        {
+        public void Dispose() => 
             _enemiesSpawner.EnemieDestroyed -= OnEnemieDestroyed;
-        }
-        
-        public void Restart()
-        {
-            _score = 0;
-        }
 
-        private void OnEnemieDestroyed()
-        {
+        public void Restart() => 
+            _score = 0;
+
+        private void OnEnemieDestroyed() => 
             _score++;
-        }
     }
 }
