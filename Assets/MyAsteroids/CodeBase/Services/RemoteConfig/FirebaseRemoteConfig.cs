@@ -36,34 +36,23 @@ namespace MyAsteroids.CodeBase.Services.RemoteConfig
             if (!string.IsNullOrEmpty(json))
             {
                 GameData data = JsonUtility.FromJson<GameData>(json);
-
-                _gameData.ShipData = data.ShipData;
-                _gameData.AmmunitionsData = data.AmmunitionsData;
-                _gameData.BulletPoolData = data.BulletPoolData;
-                _gameData.LaserPoolData = data.LaserPoolData;
-                _gameData.SpawnerData = data.SpawnerData;
-                _gameData.AsteroidData = data.AsteroidData;
-                _gameData.AsteroidSmallData = data.AsteroidSmallData;
-                _gameData.UfoData = data.UfoData;
-                _gameData.AsteroidPoolData = data.AsteroidPoolData;
-                _gameData.AsteroidSmallPoolData = data.AsteroidSmallPoolData;
-                _gameData.UfoPoolData = data.UfoPoolData;
+                
+                _datas = new Dictionary<Type, IData>
+                {
+                    [typeof(ShipData)] = data.ShipData,
+                    [typeof(AmmunitionsData)] = data.AmmunitionsData,
+                    [typeof(BulletPoolData)] = data.BulletPoolData,
+                    [typeof(LaserPoolData)] = data.LaserPoolData,
+                    [typeof(EnemiesSpawnerData)] = data.SpawnerData,
+                    [typeof(AsteroidData)] = data.AsteroidData,
+                    [typeof(AsteroidSmallData)] = data.AsteroidSmallData,
+                    [typeof(UfoData)] = data.UfoData,
+                    [typeof(AsteroidPoolData)] = data.AsteroidPoolData,
+                    [typeof(AsteroidSmallPoolData)] = data.AsteroidSmallPoolData,
+                    [typeof(UfoPoolData)] = data.UfoPoolData,
+                    [typeof(AdsData)] = data.AdsData,
+                };
             }
-            
-            _datas = new Dictionary<Type, IData>
-            {
-                [typeof(ShipData)] = _gameData.ShipData,
-                [typeof(AmmunitionsData)] = _gameData.AmmunitionsData,
-                [typeof(BulletPoolData)] = _gameData.BulletPoolData,
-                [typeof(LaserPoolData)] = _gameData.LaserPoolData,
-                [typeof(EnemiesSpawnerData)] = _gameData.SpawnerData,
-                [typeof(AsteroidData)] = _gameData.AsteroidData,
-                [typeof(AsteroidSmallData)] = _gameData.AsteroidSmallData,
-                [typeof(UfoData)] = _gameData.UfoData,
-                [typeof(AsteroidPoolData)] = _gameData.AsteroidPoolData,
-                [typeof(AsteroidSmallPoolData)] = _gameData.AsteroidSmallPoolData,
-                [typeof(UfoPoolData)] = _gameData.UfoPoolData,
-            };
         }
 
         public T Load<T>() where T : IData => 

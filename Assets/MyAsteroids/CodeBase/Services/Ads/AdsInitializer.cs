@@ -1,22 +1,34 @@
-namespace MyAsteroids.CodeBase.Services
+using MyAsteroids.CodeBase.Data;
+using UnityEngine;
+using UnityEngine.Advertisements;
+using Zenject;
+
+namespace MyAsteroids.CodeBase.Services.Ads
 {
-    using UnityEngine;
-    using UnityEngine.Advertisements;
- 
-    public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
+    public class AdsInitializer : IUnityAdsInitializationListener, IInitializable
     {
-        [SerializeField] string _androidGameId;
-        [SerializeField] string _iOSGameId;
-        [SerializeField] bool _testMode = true;
+        private readonly GameData _data;
+        private readonly InterstitialAds _interstitialAds;
+
+        private string _androidGameId;
+        private string _iOSGameId;
+        private bool _testMode;
+
         private string _gameId;
 
-        public RewardedAds RewardedAds;
- 
-        void Awake()
+        public AdsInitializer(GameData data, InterstitialAds interstitialAds)
         {
-            InitializeAds();
+            _data = data;
+            _interstitialAds = interstitialAds;
         }
- 
+
+        public void Initialize()
+        {
+            _androidGameId = _data.AdsData.AndroidGameId;
+            _iOSGameId = _data.AdsData.IOSGameId;
+            _testMode = _data.AdsData.TestMode;
+        }
+
         public void InitializeAds()
         {
 #if UNITY_IOS
@@ -32,15 +44,12 @@ namespace MyAsteroids.CodeBase.Services
             }
         }
 
- 
         public void OnInitializationComplete()
         {
-            RewardedAds.LoadAd();
+            _interstitialAds.LoadAd();
         }
- 
-        public void OnInitializationFailed(UnityAdsInitializationError error, string message)
-        {
+
+        public void OnInitializationFailed(UnityAdsInitializationError error, string message) => 
             Debug.Log($"Unity Ads Initialization Failed: {error.ToString()} - {message}");
-        }
     }
 }

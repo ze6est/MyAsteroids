@@ -1,5 +1,7 @@
 using MyAsteroids.CodeBase.Data;
+using MyAsteroids.CodeBase.Factories;
 using MyAsteroids.CodeBase.Logic;
+using MyAsteroids.CodeBase.Services.Ads;
 using MyAsteroids.CodeBase.Services.RemoteConfig;
 using UnityEngine;
 using Zenject;
@@ -20,6 +22,8 @@ namespace MyAsteroids.CodeBase.Installers
             Container.BindInstance(curtain);
             Container.BindInterfacesTo<EntryPoint>().AsSingle().NonLazy();
             Container.BindInterfacesTo<FirebaseRemoteConfig>().AsSingle();
+            Container.BindInterfacesAndSelfTo<InterstitialAds>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AdsInitializer>().AsSingle();
             Container.Bind<SceneLoader>().AsSingle();
         }
     }

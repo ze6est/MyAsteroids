@@ -24,5 +24,7 @@ namespace MyAsteroids.CodeBase.Data
         public AsteroidPoolData AsteroidPoolData;
         public AsteroidSmallPoolData AsteroidSmallPoolData;
         public UfoPoolData UfoPoolData;
+
+        public AdsData AdsData;
     }
 }

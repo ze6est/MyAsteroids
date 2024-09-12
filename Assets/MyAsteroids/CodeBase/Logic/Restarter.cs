@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using MyAsteroids.CodeBase.Services.Ads;
 using MyAsteroids.CodeBase.Ships;
 using MyAsteroids.CodeBase.UI;
 using UnityEngine;
@@ -9,19 +10,21 @@ namespace MyAsteroids.CodeBase.Logic
 {
     public class Restarter : IInitializable, IDisposable
     {
-        private DiContainer _container;
-        private RestartWindow _restartWindow;
+        private readonly DiContainer _container;
+        private readonly RestartWindow _restartWindow;
+        private readonly Ship _ship;
+        private readonly InterstitialAds _interstitialAds;
         
-        private Ship _ship;
         private ShipTriggerObserver _shipTriggerObserver;
 
         private List<IRestarter> _restarters;
 
-        public Restarter(DiContainer container, RestartWindow restartWindow, Ship ship)
+        public Restarter(DiContainer container, RestartWindow restartWindow, Ship ship, InterstitialAds interstitialAds)
         {
             _container = container;
             _restartWindow = restartWindow;
             _ship = ship;
+            _interstitialAds = interstitialAds;
         }
         
         public void Initialize()
@@ -50,6 +53,8 @@ namespace MyAsteroids.CodeBase.Logic
         private void OnDied()
         {
             Time.timeScale = 0;
+            _interstitialAds.ShowAd();
+            
             _restartWindow.Show();
 
             _restarters = _container.ResolveAll<IRestarter>();
